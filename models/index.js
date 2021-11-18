@@ -15,7 +15,7 @@ const Page = db.define('page', {
           isUrl: true,
           notEmpty: true
       },
-      constent: {
+      content: {
           type: Sequelize.TEXT,
           allowNull: false
       },

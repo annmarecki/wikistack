@@ -2,9 +2,16 @@ const express = require("express");
 const layout = require('./views/layout');
 const app = express();
 const morgan = require("morgan");
+const Wiki = require('./routes/wiki.js')
+const Users = require('./routes/users.js')
 const { db, Page, User } = require('./models');
+
+
+
 app.use(express.static(__dirname + "/public"))
 app.use(express.urlencoded({ extended: false}));
+app.use('/wiki', Wiki)
+app.use('/users', Users)
 
 db.authenticate()
   .then(() => {
